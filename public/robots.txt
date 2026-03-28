@@ -1,0 +1,19 @@
+# Tool Decision Engine — robots.txt
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://tooldecisionengine.com/sitemap.xml
+
+# Crawl-delay for polite bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
