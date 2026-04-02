@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-body text-midnight-100 bg-midnight-950;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-electric-500/30 text-white;
+  }
+}
+
+@layer components {
+  /* ─── Glass morphism card ─── */
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-sm border border-white/[0.07] rounded-2xl;
+  }
+
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:bg-white/[0.06] hover:border-white/[0.14] hover:-translate-y-1 hover:shadow-2xl hover:shadow-electric-500/5;
+  }
+
+  /* ─── Gradient text ─── */
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-electric-300 via-electric-400 to-neon-cyan;
+  }
+
+  /* ─── Grain overlay for depth ─── */
+  .noise-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  /* ─── Article content styling ─── */
+  .article-body h2 {
+    @apply font-display text-2xl font-bold text-white mt-12 mb-5 tracking-tight;
+  }
+  .article-body h3 {
+    @apply font-display text-xl font-semibold text-midnight-100 mt-9 mb-4;
+  }
+  .article-body p {
+    @apply text-midnight-200 leading-[1.8] mb-5 text-[15.5px];
+  }
+  .article-body ul, .article-body ol {
+    @apply ml-6 mb-5 space-y-2;
+    padding-left: 1.5rem;
+  }
+  .article-body ul { list-style-type: disc !important; }
+  .article-body ol { list-style-type: decimal !important; }
+  .article-body li {
+    @apply text-midnight-200 leading-[1.8] text-[15.5px];
+    display: list-item !important;
+  }
+  .article-body strong {
+    @apply font-semibold text-white;
+  }
+  .article-body em {
+    @apply italic text-midnight-100;
+  }
+  .article-body blockquote {
+    @apply border-l-4 border-electric-400 pl-6 py-3 my-8 bg-electric-500/[0.06] rounded-r-xl;
+  }
+  .article-body blockquote p {
+    @apply text-midnight-100 mb-0 text-base leading-relaxed;
+  }
+  .article-body a {
+    @apply text-electric-400 underline underline-offset-2 hover:text-electric-300 transition-colors;
+  }
+  .article-body code {
+    @apply font-mono text-sm bg-midnight-900 text-electric-300 px-1.5 py-0.5 rounded;
+  }
+  .article-body pre {
+    @apply font-mono text-sm bg-midnight-925 text-electric-300 p-5 rounded-xl overflow-x-auto my-6 border border-midnight-800;
+  }
+
+  /* ─── Table styling ─── */
+  .article-body table {
+    @apply w-full border-collapse my-8 text-sm rounded-xl overflow-hidden border border-midnight-800;
+  }
+  .article-body thead {
+    @apply bg-midnight-900;
+  }
+  .article-body th {
+    @apply px-4 py-3.5 text-left font-semibold text-xs uppercase tracking-wider text-midnight-300 border-b border-midnight-700;
+  }
+  .article-body td {
+    @apply border-b border-midnight-800/70 px-4 py-3 text-midnight-200;
+  }
+  .article-body tr:nth-child(even) td {
+    @apply bg-midnight-900/30;
+  }
+  .article-body tr:last-child td {
+    @apply border-b-0;
+  }
+
+  /* ─── Score bar ─── */
+  .score-bar {
+    @apply h-2.5 rounded-full transition-all duration-700 ease-out;
+    background: linear-gradient(90deg, #06b6d4, #22d3ee, #22ff88);
+  }
+}
